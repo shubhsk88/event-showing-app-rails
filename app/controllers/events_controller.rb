@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
     def index
-        @events=["Hackathon","CodeWars","Railswithme"]
+        @events=Event.all
     end
 end
