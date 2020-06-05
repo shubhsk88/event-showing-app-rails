@@ -10,22 +10,11 @@
   </head>
 
   <body>
-  <header>
-  <nav>
-    <%=image_tag('logo') %>
-    <ul>
-      <li>
+    <%=render "layouts/header"%>
 
-      <%=link_to "All Events", events_path%>
-      </li>
-      </ul>
-  </nav>
-  </header>
   <div class="content">
     <%= yield %>
     </div>
-    <footer>
-    Made by <a href="#">Shubham Singh</a>
-    </footer>
+    <%=render "layouts/footer"%>
   </body>
 </html>
