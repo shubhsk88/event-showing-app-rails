@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
     def index
-        @events=Event.all
+        @events=Event.upcoming
     end
 
     def show
@@ -24,9 +24,11 @@ class EventsController < ApplicationController
 
     def create
         @event=Event.new(event_params)
-        @event.save
-        redirect_to @event
-        
+        if @event.save
+            redirect_to @event
+        else
+            render :new 
+        end    
     end
 
     def destroy
@@ -38,7 +40,7 @@ class EventsController < ApplicationController
     private
 
     def event_params
-        params.require(:event).permit(:name,:description,:location,:price,:starts_at)
+        params.require(:event).permit(:name,:description,:location,:price,:starts_at,:capacity,:image_file_name)
     end
 
 end
