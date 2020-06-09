@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  resources :registrations
+  
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root "events#index"
-  resources :events
+  resources :events do
+    resources :registrations
+  end
 end
